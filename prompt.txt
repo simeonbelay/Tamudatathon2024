@@ -1,0 +1,320 @@
+# ITERATIVE PROMPT
+I want you to solve a daily word puzzle that
+finds commonalities between words. There are 16
+words, which form 4 groups of 4 words. Each
+group has some common theme that links the
+words. You must use each of the 16 words, and
+use each word only once.
+Each group of 4 words are linked together in
+some way. The connection between words can be
+simple. An example of a simple connection would
+be "types of fish": Bass, Flounder, Salmon,
+Trout. Categories can also be more complex, and
+require abstract or lateral thinking.
+An example of this type of connection would be
+"things that start with FIRE": Ant, Drill,
+Island, Opal...
+...Provide the one group you are most sure of
+as your final answer. I will enter this into
+the puzzle and give you feedback: I will tell
+you whether it is correct, incorrect, or nearly
+correct (3/4 words).
+Then we will continue until the puzzled is
+solved, or you lose.
+Format your answer as:
+GROUP NAME: [WORD, WORD, WORD, WORD]
+Some rules:
+{CHAIN_OF_THOUGHT_PROMPT}- Give your final
+answer in the format described above. Do not
+add any additional text to your final answer,
+just the group name and the 4 words.
+Here are the starting 16 words:
+{PUZZLE_WORDS}
+
+# CHAIN OF THOUGHT PROMPT
+- First, briefly summarize the rules and
+objective of the puzzle (in no more than 50
+words)
+- Next, come up with a category to which four
+of the words belong and briefly explain why you
+think they belong to that category:
+
+# CORRECT GUESS PROMPT
+The response from the game was: Correct! The
+category was {CATEGORY_NAME}. Diffulty: {
+CATEGORY_COLOR}
+Continue to solve the puzzle.
+Format your answer as:
+GROUP NAME: [WORD, WORD, WORD, WORD]
+Here are the remaining words:
+{PUZZLE_WORDS}
+
+# NEARLY CORRECT GUESS PROMPT
+The response from the game was: Nearly Correct.
+Three of your words are in a group, but one is
+not in the same group.
+Continue to solve the puzzle. Again, provide
+one group you are most certain of. MAKE SURE
+YOU DON’T REPEAT ANY OF YOUR PREVIOUS GUESSES.
+Format your answer as:
+GROUP NAME: [WORD, WORD, WORD, WORD]
+Here are the remaining words:
+{PUZZLE_WORDS}
+
+# INCORRECT GUESS PROMPT
+The response from the game was: Incorrect guess
+.
+Let’s continue to solve the puzzle. MAKE SURE
+YOU DON’T REPEAT ANY OF YOUR PREVIOUS GUESSES.
+Format your answer as:
+GROUP NAME: [WORD, WORD, WORD, WORD]
+Here are the remaining words:
+{PUZZLE_WORDS}
+
+# INVALID GUESS PROMPT
+The response from the game was: Invalid guess.
+Please try again.
+Your answer wasn’t formatted correctly. Try
+again, and follow the formatting instructions
+carefully.
+Format your answer as:
+GROUP NAME: [WORD, WORD, WORD, WORD]
+Here are the remaining words:
+{PUZZLE_WORDS}
+
+# GROUP TEST CODE
+group1 = ["TRACE", "RADICAL", "POWER", "TWISTED", 
+          "BENT", "REST", "WARPED", "ROOT", 
+          "LICK", "EXPONENT", "GNARLY", "POWDER", 
+          "OUNCE", "BATH", "SHRED", "THRONE"]
+
+group2 = ["CORD", "MUSTARD", "CAPER", "BLUE", 
+          "KOSHER", "ADULT", "SWEET", "EXPLOIT", 
+          "ANTIC", "SPICY", "DILL", "DECK", 
+          "CHEESE", "SOUR", "SUGGESTIVE", "STUNT"]
+
+group3 = ["HASH", "SALAD", "CHARACTER", "YEAR", 
+          "YOGA", "EGADS", "DIAL", "TITLE", 
+          "ARTIST", "NAME", "SCRAMBLE", "REPUTATION", 
+          "MEDIUM", "MONTE", "STEW", "IMAGE"]
+
+group4 = ["TEXT", "DIFFERENT", "RECORD", "ORIGINAL", 
+          "PLAY", "PAUSE", "BIPED", "YARDSTICK", 
+          "MESSAGE", "STOP", "CORRESPOND", "NEW", 
+          "WRITE", "NOVEL", "POEM", "FURNITURE"]
+
+group5 = ["OGRE", "CLAM", "PIPE CLEANER", "NUT", 
+          "CARPET", "KINGDOM", "PEACH", "MUSHROOM", 
+          "CATERPILLAR", "EGG", "DONKEY", "PRINCESS", 
+          "TURTLE", "DRAGON", "FLEECE", "MARKER"]
+
+group6 = ["SHELL", "WARDROBE", "STOCK", "CANT", 
+          "CONSOLE", "FURNISH", "WERE", "EGO", 
+          "OUTFIT", "CHEST", "BEING", "SELF", 
+          "CHARACTER", "VANITY", "PROVISION", "ID"]
+
+group7 = ["FEELING", "CHAIR", "SWEET", "HUNCH", 
+          "HEARING", "TOUCHING", "SENSE", "TRIAL", 
+          "MONEY", "MOVING", "IMPRESSION", "PROCEEDING", 
+          "LISTENING", "TENDER", "STREET", "INQUIRY"]
+
+group8 = ["FRIDGE", "DROP", "SINK", "COUNCIL", 
+          "COUNTER", "PLANK", "CHANDELIER", "BOAT", 
+          "PANEL", "RANGE", "CABINET", "MOUNTAIN CLIMBER", 
+          "STUD", "BOARD", "HOOP", "CRUNCH"]
+
+group9 = ["BUTTERFLY", "BOTTLE", "TAP", "CREEP", 
+          "PUFF", "CAN", "DRAG", "PLACEBO", 
+          "HALO", "INCH", "BALL", "CURL", 
+          "DOMINO", "DRAFT", "DOODLE", "CRAWL"]
+
+group10 = ["WITCH", "PUMPKIN", "BAT", "TREASURE", 
+           "EGG", "LOVE", "SCAVENGER", "VIPER", 
+           "DIABLO", "FLUTTER", "SPIDER", "MUSTANG", 
+           "WINK", "DARLING", "BLINK", "JOB"]
+
+# ANSWERS
+[
+    [
+        {
+            "words": ["BENT", "GNARLY", "TWISTED", "WARPED"],
+            "category": "CONTORTED"
+        },
+        {
+            "words": ["LICK", "OUNCE", "SHRED", "TRACE"],
+            "category": "SMALLEST AMOUNT"
+        },
+        {
+            "words": ["EXPONENT", "POWER", "RADICAL", "ROOT"],
+            "category": "ALGEBRA TERMS"
+        },
+        {
+            "words": ["BATH", "POWDER", "REST", "THRONE"],
+            "category": "WORDS BEFORE “ROOM” TO MEAN LAVATORY"
+        }
+    ],
+    [
+        {
+            "words": ["ANTIC", "CAPER", "EXPLOIT", "STUNT"],
+            "category": "ESCAPADE"
+        },
+        {
+            "words": ["DILL", "KOSHER", "SOUR", "SWEET"],
+            "category": "KINDS OF PICKLES"
+        },
+        {
+            "words": ["ADULT", "BLUE", "SPICY", "SUGGESTIVE"],
+            "category": "RISQUÉ"
+        },
+        {
+            "words": ["CHEESE", "CORD", "DECK", "MUSTARD"],
+            "category": "CUT THE ___"
+        }
+    ],
+    [
+        {
+            "words": ["HASH", "SALAD", "SCRAMBLE", "STEW"],
+            "category": "FOOD-RELATED JUMBLES"
+        },
+        {
+            "words": ["CHARACTER", "IMAGE", "NAME", "REPUTATION"],
+            "category": "PUBLIC STANDING"
+        },
+        {
+            "words": ["ARTIST", "MEDIUM", "TITLE", "YEAR"],
+            "category": "INFO ON A MUSEUM PLACARD"
+        },
+        {
+            "words": ["DIAL", "EGADS", "MONTE", "YOGA"],
+            "category": "ANAGRAMS OF FAMOUS PAINTERS"
+        }
+    ],
+    [
+        {
+            "words": ["PAUSE", "PLAY", "RECORD", "STOP"],
+            "category": "DVR BUTTONS"
+        },
+        {
+            "words": ["DIFFERENT", "NEW", "NOVEL", "ORIGINAL"],
+            "category": "GROUNDBREAKING"
+        },
+        {
+            "words": ["CORRESPOND", "MESSAGE", "TEXT", "WRITE"],
+            "category": "COMMUNICATE THROUGH WRITING"
+        },
+        {
+            "words": ["BIPED", "FURNITURE", "POEM", "YARDSTICK"],
+            "category": "THINGS WITH FEET"
+        }
+    ],
+    [
+        {
+            "words": ["CATERPILLAR", "FLEECE", "PEACH", "PIPE CLEANER"],
+            "category": "THINGS THAT ARE FUZZY"
+        },
+        {
+            "words": ["CLAM", "EGG", "NUT", "TURTLE"],
+            "category": "THINGS WITH SHELLS"
+        },
+        {
+            "words": ["DONKEY", "DRAGON", "OGRE", "PRINCESS"],
+            "category": "FIGURES IN “SHREK”"
+        },
+        {
+            "words": ["CARPET", "KINGDOM", "MARKER", "MUSHROOM"],
+            "category": "MAGIC ___"
+        }
+    ],
+    [
+        {
+            "words": ["FURNISH", "OUTFIT", "PROVISION", "STOCK"],
+            "category": "EQUIP"
+        },
+        {
+            "words": ["BEING", "CHARACTER", "EGO", "SELF"],
+            "category": "INDIVIDUALITY"
+        },
+        {
+            "words": ["CHEST", "CONSOLE", "VANITY", "WARDROBE"],
+            "category": "FURNITURE"
+        },
+        {
+            "words": ["CANT", "ID", "SHELL", "WERE"],
+            "category": "WORDS WITH APOSTROPHES REMOVED"
+        }
+    ],
+    [
+        {
+            "words": ["MOVING", "SWEET", "TENDER", "TOUCHING"],
+            "category": "HEARTWARMING"
+        },
+        {
+            "words": ["FEELING", "HUNCH", "IMPRESSION", "SENSE"],
+            "category": "SNEAKING SUSPICION"
+        },
+        {
+            "words": ["HEARING", "INQUIRY", "PROCEEDING", "TRIAL"],
+            "category": "LEGAL SESSION"
+        },
+        {
+            "words": ["CHAIR", "LISTENING", "MONEY", "STREET"],
+            "category": "EASY ___"
+        }
+    ],
+    [
+        {
+            "words": ["COUNTER", "FRIDGE", "RANGE", "SINK"],
+            "category": "SEEN IN A KITCHEN"
+        },
+        {
+            "words": ["BOARD", "CABINET", "COUNCIL", "PANEL"],
+            "category": "GROUP OF ADVISORS"
+        },
+        {
+            "words": ["BOAT", "CRUNCH", "MOUNTAIN CLIMBER", "PLANK"],
+            "category": "CORE EXERCISES"
+        },
+        {
+            "words": ["CHANDELIER", "DROP", "HOOP", "STUD"],
+            "category": "KINDS OF EARRINGS"
+        }
+    ],
+    [
+        {
+            "words": ["CRAWL", "CREEP", "DRAG", "INCH"],
+            "category": "PROGRESS SLOWLY"
+        },
+        {
+            "words": ["BOTTLE", "CAN", "DRAFT", "TAP"],
+            "category": "WAYS TO ORDER A BEER"
+        },
+        {
+            "words": ["BALL", "CURL", "DOODLE", "PUFF"],
+            "category": "CHEESY CORN SNACK UNIT"
+        },
+        {
+            "words": ["BUTTERFLY", "DOMINO", "HALO", "PLACEBO"],
+            "category": "___ EFFECT"
+        }
+    ],
+    [
+        {
+            "words": ["DARLING", "LOVE", "PUMPKIN", "TREASURE"],
+            "category": "TERMS OF ENDEARMENT"
+        },
+        {
+            "words": ["BAT", "BLINK", "FLUTTER", "WINK"],
+            "category": "THINGS YOU CAN DO WITH YOUR EYELIDS"
+        },
+        {
+            "words": ["DIABLO", "MUSTANG", "SPIDER", "VIPER"],
+            "category": "SPORTS CARS"
+        },
+        {
+            "words": ["EGG", "JOB", "SCAVENGER", "WITCH"],
+            "category": "___ HUNT"
+        }
+    ]
+]
+
+
